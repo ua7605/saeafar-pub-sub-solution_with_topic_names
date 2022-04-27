@@ -1,3 +1,5 @@
+import json
+
 import zmq
 import threading
 
@@ -23,3 +25,9 @@ class ZMQSubscriber:
         worker = threading.Thread(target=self.fetch_updates)
         worker.start()
         self.callback = callback
+
+    def fetch_updates(self):
+        while True:
+            message_data = self.socket.recv().decode()
+            _, _, message = message_data.partition(":")
+            self.callback(json.loads(message))
