@@ -7,7 +7,7 @@ if __name__ == '__main__':
     topic: str = "allData"
 
     # Creating the publisher. # IMEC public IP: 193.190.127.147
-    publisher = Publisher(ip='127.0.0.1', port='2004')
+    publisher = Publisher(ip='193.190.127.147', port='2004')
     # publisher.start()
 
     # Seafar JSON object data
